@@ -29,9 +29,9 @@ export default class Game {
     this.ball.width = 70
     this.ball.height = 70
     
-    this.screenWidth = this.app.screen.width;
+    this.screenWidth = this.app.renderer.width;
     this.screenWidthCentered = this.screenWidth / 2;
-    this.screenHeight = this.app.screen.height;
+    this.screenHeight = this.app.renderer.height;
     this.screenHeightCentered = this.screenHeight / 2;
     this.personaWidth = 150;
     this.personaHeight = 30;
@@ -62,17 +62,15 @@ export default class Game {
     this.secondsInterval = setInterval(() => {
       
       if (this.ball.x > this.screenWidth - this.ballRadius || this.ball.x + this.directions.x < this.ballRadius) {
-        this.directions.x = - this.directions.x;
+        this.directions.x = -this.directions.x;
       }
       if (this.ball.y + this.directions.y < this.ballRadius) {
-        this.directions.y = - this.directions.y;
+        this.directions.y = -this.directions.y;
       }
       else if(this.ball.y + this.directions.y > this.screenHeight - this.ballRadius) {
-        console.log('Colisão');
         if(this.ball.x > this.graphics.x && this.ball.x < this.graphics.x + this.graphics.width) {
-          console.log('Bateu no bastao');
           this.score(+1);
-          this.directions.x = - this.directions.x;
+          this.directions.x = -this.directions.x;
           this.directions.y *= -0.8
         }
         else {
@@ -89,7 +87,7 @@ export default class Game {
 
   changePersonaPosition ( direction ) {
     console.log('CHANGE DIRECTION => ', direction);
-    if(direction === 1 && this.graphics.x < this.screenWidth - this.personaWidth) {
+    if(direction === 1 && this.graphics.x < this.screenWidth - this.graphics.width) {
       console.log('CHANGE DIRECTION 1 => ', this.graphics.x);
       this.graphics.x += 20;
     }
