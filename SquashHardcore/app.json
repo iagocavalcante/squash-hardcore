@@ -1,0 +1,17 @@
+{
+  "name": "SquashHardcore",
+  "displayName": "SquashHardcore",
+  "expo": {
+    "name": "SquashHardcore",
+    "slug": "SquashHardcore",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
