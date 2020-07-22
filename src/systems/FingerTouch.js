@@ -1,11 +1,12 @@
 import Constants from "../components/Constants";
-import Matter from 'matter-js';
+import Matter, { Events } from 'matter-js';
 
 let tick = 1;
 let pose = 1;
 let deltas = {};
 const FingerTouch = (entities, { touches, time }) => {
   const player = entities.player.body;
+  const engine = entities.physics.engine;
 
   touches.filter(t => t.type === "move").forEach(t => {
     if (player && player.position) {
@@ -52,10 +53,8 @@ const FingerTouch = (entities, { touches, time }) => {
     if (pose > 3){
       pose = 1;
     }
-    entities.player.pose = pose;
+    player.pose = pose;
   }
-
-  // Matter.Engine.update(engine, time.delta);
  
   return entities;
 };

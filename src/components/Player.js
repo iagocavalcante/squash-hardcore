@@ -8,7 +8,6 @@ const Player = (props) => {
   const height = 64;
   const x = props.body.position.x - width / 2;
   const y = props.body.position.y - height / 2;
-  // const x = props.body.position[0] - width / 2
 
   animatedValue.setValue(props.body.velocity.y);
   const rotation = animatedValue.interpolate({
